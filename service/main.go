@@ -24,7 +24,7 @@ var (
 	ConfigFile  string
 	NodeName    string
 	RedisAddr   string
-	RedisPsw    string
+	RedisPwd    string
 	LogFilePath string
 )
 
@@ -35,7 +35,7 @@ func init() {
 	flag.StringVar(&ConfigFile, "config", "", "config file")
 	flag.StringVar(&NodeName, "node", "l1", "node name")
 	flag.StringVar(&RedisAddr, "redis", "localhost:6379", "redis address")
-	flag.StringVar(&RedisPsw, "redisPsw", "", "redis password")
+	flag.StringVar(&RedisPwd, "redisPwd", "", "redis password")
 	flag.Parse()
 }
 
@@ -92,8 +92,8 @@ func main() {
 		cfg.Addr = RedisAddr
 	}
 
-	if RedisPsw != "" {
-		cfg.Password = RedisPsw
+	if RedisPwd != "" {
+		cfg.Password = RedisPwd
 	}
 
 	rcs := backend.NewRedisConfigSource(&cfg.Options, cfg.Node)
