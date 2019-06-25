@@ -108,7 +108,7 @@ func (hs *HttpService) HandlerWrite(w http.ResponseWriter, req *http.Request) {
 	precision := query.Get("precision")
 
 	// "|"作为分隔符与line进行拼接, 在backend/http.go中进行拆开
-	optionParam := "rp=" + rp + "&precision=" + precision + "|"
+	optionParams := "rp=" + rp + "&precision=" + precision + "|"
 
 	if hs.db != "" {
 		if db != hs.db {
